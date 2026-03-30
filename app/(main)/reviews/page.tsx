@@ -1,8 +1,8 @@
-import { BookOpen, LogOut, Plus, Search } from "lucide-react";
-import { logout } from "@/app/_lib/actions/auth";
+import { BookOpen, Plus } from "lucide-react";
 import { ThemeToggle } from "@/app/_components/ui/theme-toggle";
 import { verifySession } from "@/app/_lib/auth";
 import ReviewList from "@/app/_components/reviews/review-list";
+import LogoutButton from "@/app/_components/auth/logout-button";
 import Link from "next/link";
 
 export default function ReviewsDashboard() {
@@ -20,15 +20,7 @@ export default function ReviewsDashboard() {
         <div className="flex items-center gap-4">
           <ThemeToggle />
           <div className="h-8 w-[1px] bg-slate-200 dark:bg-slate-800 mx-2" />
-          <form action={logout}>
-            <button
-              type="submit"
-              className="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition-all hover:bg-slate-50 active:scale-95 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800"
-            >
-              <LogOut className="h-4 w-4" />
-              Cerrar Sesión
-            </button>
-          </form>
+          <LogoutButton />
         </div>
       </header>
 

@@ -31,7 +31,7 @@ export default function Home() {
             </p>
             <div className="flex w-full flex-col sm:flex-row items-center justify-center gap-4">
               <Link
-                href="/register"
+                href="/signup"
                 className="group flex h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-slate-900 dark:bg-white px-8 text-sm font-semibold text-white dark:text-slate-900 transition-all hover:scale-105 hover:bg-slate-800 dark:hover:bg-slate-200 shadow-xl"
               >
                 Comienza a explorar

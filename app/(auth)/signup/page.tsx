@@ -12,7 +12,7 @@ export default function RegisterPage() {
 
   return (
     <div className="flex min-h-screen bg-slate-50 dark:bg-slate-950 items-center justify-center p-4">
-      <div className="w-full max-sm:max-w-sm bg-white dark:bg-slate-900/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] rounded-[2rem] p-8 border border-slate-100/80 dark:border-slate-800 backdrop-blur-xl">
+      <div className="w-full max-w-sm bg-white dark:bg-slate-900/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] rounded-[2rem] p-8 border border-slate-100/80 dark:border-slate-800 backdrop-blur-xl">
         <div className="flex flex-col items-center mb-8">
             <Link href="/" className="mb-4 inline-flex items-center justify-center h-12 w-12 rounded-full bg-sky-50 dark:bg-sky-900/40 text-sky-600 dark:text-sky-400">
                 <BookOpen className="h-6 w-6" />

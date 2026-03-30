@@ -21,20 +21,20 @@ export async function signup(
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
-      message: "Please fix the errors to proceed.",
+      message: "Corrige los errores para continuar.",
     };
   }
 
   const existingUser = await getUserByEmail(validatedFields.data.email);
   if (existingUser) {
     return {
-      message: "That email is already registered. Try logging in instead.",
+      message: "Ese correo ya está registrado. Intenta iniciar sesión.",
     };
   }
 
   const user = await createUser(validatedFields.data);
   await createSession(user.id);
-  redirect("/reviews?success=register");
+  redirect("/reviews?success=signup");
 }
 
 export async function login(
@@ -49,7 +49,7 @@ export async function login(
   if (!validatedFields.success) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
-      message: "Required fields are missing.",
+      message: "Completa los campos requeridos.",
     };
   }
 
@@ -57,12 +57,12 @@ export async function login(
 
   const user = await getUserByEmail(email);
   if (!user) {
-    return { message: "Invalid email or password." };
+    return { message: "Correo o contraseña incorrectos." };
   }
 
   const isMatch = await bcryptjs.compare(password, user.password);
   if (!isMatch) {
-    return { message: "Invalid email or password." };
+    return { message: "Correo o contraseña incorrectos." };
   }
 
   await createSession(user.id);

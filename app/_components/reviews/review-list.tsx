@@ -3,10 +3,13 @@
 import { useEffect, useState } from "react";
 import { Star, Trash2, MessageSquare, Quote } from "lucide-react";
 import { toast } from "sonner";
+import ConfirmationModal from "@/app/_components/ui/confirmation-modal";
 
 export default function ReviewList({ currentUserId }: { currentUserId: number | undefined }) {
   const [reviews, setReviews] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [reviewToDelete, setReviewToDelete] = useState<number | null>(null);
 
   async function fetchReviews() {
     try {
@@ -26,19 +29,21 @@ export default function ReviewList({ currentUserId }: { currentUserId: number | 
     fetchReviews();
   }, []);
 
-  async function handleDelete(id: number) {
-    if (!confirm("¿Estás seguro de que deseas eliminar esta reseña?")) return;
+  async function confirmDelete() {
+    if (reviewToDelete === null) return;
 
     try {
-      const res = await fetch(`/api/reviews/${id}`, { method: "DELETE" });
+      const res = await fetch(`/api/reviews/${reviewToDelete}`, { method: "DELETE" });
       if (res.ok) {
         toast.success("Reseña eliminada.");
-        setReviews(reviews.filter((r) => r.id !== id));
+        setReviews(reviews.filter((r) => r.id !== reviewToDelete));
       } else {
         toast.error("No se pudo eliminar la reseña.");
       }
     } catch (error) {
       toast.error("Error de red.");
+    } finally {
+      setReviewToDelete(null);
     }
   }
 
@@ -90,8 +95,11 @@ export default function ReviewList({ currentUserId }: { currentUserId: number | 
             </div>
             {currentUserId === review.user_id && (
               <button
-                onClick={() => handleDelete(review.id)}
-                className="opacity-0 group-hover:opacity-100 p-2 text-red-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-xl transition-all active:scale-90"
+                onClick={() => {
+                  setReviewToDelete(review.id);
+                  setIsDeleteModalOpen(true);
+                }}
+                className="opacity-0 group-hover:opacity-100 p-2 text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-xl transition-all active:scale-90"
                 title="Eliminar reseña"
               >
                 <Trash2 className="h-5 w-5" />
@@ -124,6 +132,20 @@ export default function ReviewList({ currentUserId }: { currentUserId: number | 
           </div>
         </div>
       ))}
+
+      <ConfirmationModal
+        isOpen={isDeleteModalOpen}
+        onClose={() => {
+          setIsDeleteModalOpen(false);
+          setReviewToDelete(null);
+        }}
+        onConfirm={confirmDelete}
+        title="¿Eliminar reseña?"
+        description="Esta acción es permanente y no se puede deshacer. La reseña se borrará de la biblioteca pública."
+        confirmText="Eliminar"
+        cancelText="Cancelar"
+        variant="danger"
+      />
     </div>
   );
 }

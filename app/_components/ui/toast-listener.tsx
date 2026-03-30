@@ -12,10 +12,10 @@ export default function ToastListener() {
   useEffect(() => {
     const successType = searchParams.get("success");
     if (successType) {
-      if (successType === "register") {
-        toast.success("Cuenta creada con éxito. ¡Bienvenido a Luminary!");
+      if (successType === "signup") {
+        toast.success("Cuenta creada con éxito. Bienvenido a Daniel's Library.");
       } else if (successType === "login") {
-        toast.success("Sesión iniciada con éxito. ¡Hola de nuevo!");
+        toast.success("Sesión iniciada con éxito. Hola de nuevo.");
       }
       const newUrl = pathname;
       router.replace(newUrl, { scroll: false });
