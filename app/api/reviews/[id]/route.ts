@@ -4,7 +4,7 @@ import { verifySession } from "@/app/_lib/auth";
 
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  context: { params: Promise<{ id: string }> }
 ) {
   const session = await verifySession();
   if (!session) {
@@ -12,7 +12,7 @@ export async function DELETE(
   }
 
   try {
-    const { id } = await params;
+    const { id } = await context.params;
     const reviewId = Number(id);
     const review = await db.review.findUnique({
       where: { id: reviewId },
