@@ -17,19 +17,19 @@ const lora = Lora({
 })
 
 export const metadata: Metadata = {
-  title: 'Book Review App',
+  title: "Daniel's Library",
   description:
-    'Discover, review, and share your favorite books with the community.',
-}
+    "Descubre, reseña y comparte tus libros favoritos con la comunidad.",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html
-      lang="en"
+      lang="es"
       className={`${playfair.variable} ${lora.variable} h-full antialiased`}
       suppressHydrationWarning
     >
