@@ -4,7 +4,7 @@ Daniel's Library es una aplicación para gestionar lecturas personales, escribir
 
 ## Despliegue en Vivo
 
-- **URL**: [URL de Railway se añadirá tras el despliegue]
+- **URL**: [https://book-review-app-production-74bf.up.railway.app/](https://book-review-app-production-74bf.up.railway.app/)
 
 ## Tecnologías
 
