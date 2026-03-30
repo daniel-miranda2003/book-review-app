@@ -4,7 +4,7 @@ import { decrypt } from "@/app/_lib/auth";
 const protectedRoutes = ["/reviews", "/add-review"];
 const publicOnlyRoutes = ["/login", "/register"];
 
-export async function middleware(req: NextRequest) {
+export default async function proxy(req: NextRequest) {
   const path = req.nextUrl.pathname;
   const isProtected = protectedRoutes.some((route) => path.startsWith(route));
   const isPublicOnly = publicOnlyRoutes.some((route) => path.startsWith(route));
