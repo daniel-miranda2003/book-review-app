@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Daniel's Library - Reseñas de Libros Personalizadas
 
-## Getting Started
+Daniel's Library es una aplicación para gestionar lecturas personales, escribir reseñas y compartir opiniones literarias. Incorpora una métrica de impacto emocional a través del campo Mood.
 
-First, run the development server:
+## Despliegue en Vivo
+- **URL**: [URL de Railway se añadirá tras el despliegue]
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tecnologías
+- **Framework**: Next.js 16.2 (App Router)
+- **Base de Datos**: PostgreSQL (Prisma ORM)
+- **Autenticación**: JWT con HttpOnly cookies (jose)
+- **Seguridad**: Hashing de contraseñas con bcryptjs
+- **Validación**: Esquemas estrictos con Zod
+- **Diseño**: Tailwind CSS v4 (Tipografías: Playfair Display y Lora)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## El Campo Mood
+A diferencia de las estrellas convencionales, el campo Mood permite al lector especificar el impacto emocional de la obra (ej. Inspirado, Melancólico, Nostálgico, Entusiasmado). Esto ofrece un contexto más profundo para otros lectores.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Configuración Local
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. **Clonar e Instalar:**
+   ```bash
+   git clone <repo-url>
+   cd book-review-app
+   npm install
+   ```
 
-## Learn More
+2. **Base de Datos y Entorno:**
+   - Crear un archivo .env basado en .env.example.
+   - Configurar una base de datos PostgreSQL y asignar la URL en DATABASE_URL.
+   - Generar un JWT_SECRET de 32 caracteres.
 
-To learn more about Next.js, take a look at the following resources:
+3. **Configuración de Prisma:**
+   ```bash
+   npx prisma db push
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Ejecutar:**
+   ```bash
+   npm run dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Decisiones Técnicas y Notas
+- **Adaptadores de Prisma**: Para asegurar la compatibilidad con el recolector de páginas estáticas de Next.js 16, el cliente de Prisma se inicializa utilizando un adaptador del driver pg.
+- **Middleware**: Se utiliza middleware.ts para la protección de rutas privadas (/reviews). Se priorizó la seguridad y simplicidad del enrutamiento.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Tiempo Estimado de Desarrollo
+- Total aproximado: 8 horas.
