@@ -42,7 +42,7 @@ A diferencia de las estrellas convencionales, el campo Mood permite al lector es
 
 ## Decisiones Técnicas y Notas
 - **Adaptadores de Prisma**: Para asegurar la compatibilidad con el recolector de páginas estáticas de Next.js 16, el cliente de Prisma se inicializa utilizando un adaptador del driver pg.
-- **Middleware**: Se utiliza middleware.ts para la protección de rutas privadas (/reviews). Se priorizó la seguridad y simplicidad del enrutamiento.
+- **Protección de Rutas (Proxy)**: Se utiliza `proxy.ts` para la protección de sesiones en las rutas privadas `/reviews` y `/add-review`, siguiendo la nueva convención de Next.js 16.2.1 para un procesamiento eficiente de peticiones.
 
 ## Tiempo Estimado de Desarrollo
 - Total aproximado: 8 horas.
