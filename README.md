@@ -81,7 +81,3 @@ A diferencia de las estrellas convencionales, el campo Mood permite al lector es
 - El campo rating no tiene validacion CHECK a nivel de base de datos con Prisma; la validacion se realiza en el lado del cliente y la API.
 - La sesion JWT tiene una duracion fija de 7 dias sin mecanismo de renovacion automatica.
 - El modo oscuro depende del sistema operativo del usuario como configuracion inicial.
-
-## Tiempo Estimado de Desarrollo
-
-- Total aproximado: 8 horas.
