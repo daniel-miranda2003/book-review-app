@@ -1,22 +1,18 @@
-# Daniel's Library - Aplicacion de Resenas de Libros
+Library - Aplicacion de Resenas de Libros
 
-Daniel's Library es una aplicacion fullstack para gestionar lecturas personales, escribir resenas y compartir opiniones literarias. Incorpora una metrica de impacto emocional a traves del campo Mood.
-
-## Despliegue en Vivo
-
-- URL: https://book-review-app-production-74bf.up.railway.app/
+Library es una aplicacion fullstack para gestionar lecturas personales, escribir resenas y compartir opiniones literarias. Incorpora una metrica de impacto emocional a traves del campo Mood.
 
 ## Tecnologias
 
-- Framework: Next.js 16.2 (App Router)
+- Framework: Next.js 16.2
 - Lenguaje: TypeScript
-- Estilos: Tailwind CSS v4
+- Estilos: Tailwind CSS
 - Base de Datos: PostgreSQL (Railway) con Prisma ORM
-- Autenticacion: JWT con HttpOnly cookies (jose)
-- Seguridad: Hashing de contrasenas con bcryptjs
+- Autenticacion: JWT con HttpOnly cookies
+- Seguridad: Hashing de contraseñas con bcryptjs
 - Validacion: Esquemas estrictos con Zod
 - Despliegue: Railway (free-tier)
-- Versionamiento: GitHub (repositorio publico)
+- Versionamiento: GitHub
 
 ## El Campo Mood
 
