@@ -9,7 +9,7 @@ export default function Home() {
         <div className="flex items-center gap-2">
           <BookOpen className="h-6 w-6 text-sky-600 dark:text-sky-400" />
           <span className="font-serif font-bold tracking-tight text-xl text-slate-900 dark:text-white">
-            Daniel's Library
+            Library
           </span>
         </div>
         <ThemeToggle />
